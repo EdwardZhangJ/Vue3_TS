@@ -21,18 +21,19 @@
     <script src="../js/vue.js"></script>
     <script>
       const App = {
-        template: "#my-app",
+        template: '#my-app',
         data() {
           return {
             info: {
               // vue3 由 proxy 对象劫持,进行响应式处理
-              name: "why",
-              age: "18",
+              name: 'why',
+              age: '18',
               nba: {
-                name: "Curry",
+                name: 'Curry',
               },
             },
-          };
+            friends: [{ name: 'why' }, { name: 'kobe' }],
+          }
         },
         watch: {
           // 默认情况下，侦听器只会针对监听数据本身的改变(内部发生的改变不能侦听)
@@ -50,29 +51,29 @@
         },
         methods: {
           changeInfo() {
-            this.info = { name: "kobe" };
+            this.info = { name: 'kobe' }
           },
           changeInfoName() {
-            this.info.name = "kobe";
+            this.info.name = 'kobe'
           },
           changeInfoNbaName() {
-            this.info.nba.name = "james";
+            this.info.nba.name = 'james'
           },
         },
         created() {
           this.$watch(
-            "info",
+            'info',
             function (newV, oldV) {
-              console.log(newV, oldV);
+              console.log(newV, oldV)
             },
             {
               deep: true,
               immediate: true,
             }
-          );
+          )
         },
-      };
-      Vue.createApp(App).mount("#app");
+      }
+      Vue.createApp(App).mount('#app')
     </script>
   </body>
 </html>
