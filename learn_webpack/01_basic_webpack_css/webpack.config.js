@@ -4,5 +4,15 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './build') 
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,  // 正则表达式
+        use: [
+          'css-loader'
+        ]
+      },
+    ]
   }
 }
