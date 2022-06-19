@@ -34,7 +34,7 @@ module.exports = {
           'css-loader',
           "less-loader"
         ]
-      }
+      },
       // {
       //   test: /\.(less|css)$/,
       //   use: [
@@ -43,6 +43,18 @@ module.exports = {
       //     "less-loader"
       //   ]
       // }
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        type: 'asset',
+        generator: {
+          filename: 'image/[name]_[hash:6][ext]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 50 * 1024
+          }
+        }
+      }
     ]
   }
 }
