@@ -3,7 +3,8 @@ const path = require('path')
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, './build')
+    path: path.resolve(__dirname, './build'),
+    // filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -11,20 +12,9 @@ module.exports = {
         test: /\.css$/,  // 正则表达式
         // 2. 完整的写法
         use: [
-          // {loader: 'css-loader'}
           'style-loader',
           'css-loader',
           'postcss-loader'
-          // {
-          //   loader: 'postcss-loader',
-          //   options: [
-          //     postcssOptions: {
-          //       plugins:[
-          //         require('autoprefixer')
-          //       ]
-          //     }
-          //   ]
-          // }
         ]
       },
       {
@@ -34,15 +24,20 @@ module.exports = {
           'css-loader',
           "less-loader"
         ]
+      },
+      {
+        test: /\.(jp?g|png|gif|svg)$/,
+        type: 'asset',
+        generator: {
+          filename: 'image/[name]_[hash:6][ext]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 50 * 1024
+          }
+        }
       }
-      // {
-      //   test: /\.(less|css)$/,
-      //   use: [
-      //     'style-loader',
-      //     'css-loader',
-      //     "less-loader"
-      //   ]
-      // }
     ]
   }
 }
+ 
