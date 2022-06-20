@@ -19,6 +19,11 @@ bgDivEl.className = 'image-bg'
 const imgEl = document.createElement('img')
 imgEl.src = imgUrl
 
+
+// i 元素
+const iEl = document.createElement('div')
+
+
 document.body.appendChild(divEl)
 document.body.appendChild(bgDivEl)
 document.body.appendChild(imgEl)
