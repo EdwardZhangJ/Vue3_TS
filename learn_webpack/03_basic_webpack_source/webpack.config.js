@@ -25,6 +25,14 @@ module.exports = {
           "less-loader"
         ]
       },
+      // {
+      //   test: /\.(less|css)$/,
+      //   use: [
+      //     'style-loader',
+      //     'css-loader',
+      //     "less-loader"
+      //   ]
+      // }
       {
         test: /\.(jp?g|png|gif|svg)$/,
         type: 'asset',
@@ -40,4 +48,3 @@ module.exports = {
     ]
   }
 }
- 
